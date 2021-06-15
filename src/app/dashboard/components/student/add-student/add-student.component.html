@@ -1,0 +1,28 @@
+<div class="container">
+    <mat-toolbar>
+        <span>Crear estudiante</span>
+    </mat-toolbar>
+    <div fxLayoutAlign="center center" fxFlexFill style="margin-top: 20px;">
+        <mat-card fxFlex="50">
+            <form [formGroup]="form" (ngSubmit)="submit()" fxLayoutAlign="stretch" fxLayout="column" class="form">
+                <mat-form-field>
+                    <input matInput placeholder="Nombre" formControlName="name" class="form-control"  name="name">
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput placeholder="Email" formControlName="email" class="form-control"  name="email">
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput placeholder="Password" type="password" formControlName="password" class="form-control"  name="password">
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput placeholder="Password Confirmation" type="password" formControlName="password_confirmation" class="form-control"  name="password_confirmation">
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput placeholder="Telefono" formControlName="phone" class="form-control"  name="phone">
+                </mat-form-field>
+                <button mat-flat-button color="primary">GUARDAR</button>
+                <button mat-flat-button routerLink="/student">VOLVER</button>
+            </form>
+        </mat-card>
+    </div>
+</div>

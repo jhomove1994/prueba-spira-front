@@ -1,0 +1,19 @@
+<div class="container">
+    <mat-toolbar>
+        <span>Editar curso</span>
+    </mat-toolbar>
+    <div fxLayoutAlign="center center" fxFlexFill style="margin-top: 20px;">
+        <mat-card fxFlex="50">
+            <form [formGroup]="form" (ngSubmit)="submit()" fxLayoutAlign="stretch" fxLayout="column" class="form">
+                <mat-form-field>
+                    <input matInput placeholder="Nombre" formControlName="name" class="form-control"  name="name">
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput placeholder="Intensidad" formControlName="intensity" class="form-control"  name="intensity">
+                </mat-form-field>
+                <button mat-flat-button color="primary">GUARDAR</button>
+                <button mat-flat-button routerLink="/course">VOLVER</button>
+            </form>
+        </mat-card>
+    </div>
+</div>

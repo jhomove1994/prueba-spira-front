@@ -12,14 +12,18 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "~11.1.2",
+    "@angular/cdk": "^11.2.13",
     "@angular/common": "~11.1.2",
     "@angular/compiler": "~11.1.2",
     "@angular/core": "~11.1.2",
+    "@angular/flex-layout": "^12.0.0-beta.34",
     "@angular/forms": "~11.1.2",
+    "@angular/material": "^11.2.13",
     "@angular/platform-browser": "~11.1.2",
     "@angular/platform-browser-dynamic": "~11.1.2",
     "@angular/router": "~11.1.2",
     "rxjs": "~6.6.0",
+    "sweetalert2": "^11.0.17",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.3"
   },

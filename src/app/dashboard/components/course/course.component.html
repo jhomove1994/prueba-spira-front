@@ -1,0 +1,57 @@
+<div class="container">
+    <mat-toolbar>
+        <span>Cursos</span>
+        <div class="spacer"></div>
+        <button mat-raised-button color="primary" routerLink="/add-course">ADD</button>
+    </mat-toolbar>
+    <div *ngIf="courses.length">
+      <mat-form-field style="margin:10px">
+          <mat-label>Filter</mat-label>
+          <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+      </mat-form-field>
+      <div class="mat-elevation-z8" style="margin:10px">
+          <table mat-table [dataSource]="dataSource" matSort>
+          
+              <!--- Note that these columns can be defined in any order.
+                    The actual rendered columns are set as a property on the row definition" -->
+            
+              <!-- Position Column -->
+              <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> No. </th>
+                <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+              </ng-container>
+            
+              <!-- Name Column -->
+              <ng-container matColumnDef="nombre">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </th>
+                <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+              </ng-container>
+            
+              <!-- Weight Column -->
+              <ng-container matColumnDef="intensidad">
+                <th mat-header-cell *matHeaderCellDef> Intensidad </th>
+                <td mat-cell *matCellDef="let element"> {{element.intensity}} </td>
+              </ng-container>
+            
+               <!-- Symbol Column -->
+               <ng-container matColumnDef="acciones">
+                  <th mat-header-cell *matHeaderCellDef></th>
+                  <td mat-cell *matCellDef="let element" style="tex-align: right">
+                      <a class="pointer" style="color: #1f516f" matTooltip="Editar curso" [routerLink]="['/edit-course/', element.id]">
+                          <mat-icon>edit</mat-icon>
+                      </a>
+                      <a class="pointer" (click)="deleteStudent(element.id)" style="color: #e15639" matTooltip="Eliminar curso">
+                          <mat-icon>delete</mat-icon>
+                      </a>
+                  </td>
+                </ng-container>
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+          <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+      </div>
+    </div>
+
+    <h2 *ngIf="!courses.length">No hay registros para mostrar</h2>
+</div>
+

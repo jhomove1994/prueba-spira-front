@@ -1,0 +1,29 @@
+<mat-sidenav-container autosize>
+    <mat-sidenav #sidenav mode="side" opened="true">
+        <mat-nav-list>
+            <mat-list-item (click)="isExpanded = !isExpanded">
+                <mat-icon mat-list-icon class="chevron-button sidenav-button" [ngClass]="{'rotated': isExpanded}">chevron_right</mat-icon>
+            </mat-list-item>
+            <div *ngIf="role === 'administrador'">
+                <mat-list-item *ngFor="let item of sideMenuAdmin" [routerLink]="item.route">
+                    <mat-icon mat-list-icon>{{item.icon}}</mat-icon>
+                    <span *ngIf="isExpanded">{{item.name}}</span>
+                </mat-list-item>
+            </div>
+            <div *ngIf="role === 'alumno'">
+                <mat-list-item *ngFor="let item of sideMenuStudent" [routerLink]="item.route">
+                    <mat-icon mat-list-icon>{{item.icon}}</mat-icon>
+                    <span *ngIf="isExpanded">{{item.name}}</span>
+                </mat-list-item>
+            </div>
+        </mat-nav-list>
+    </mat-sidenav>
+    <div class="content">
+        <mat-toolbar>
+            <span>{{user}} - ({{role}})</span>
+            <span class="spacer"></span>
+            <mat-icon mat-list-icon class="sidenav-button" (click)="logout()">exit_to_app</mat-icon>
+        </mat-toolbar>
+        <router-outlet></router-outlet>
+    </div>
+</mat-sidenav-container>

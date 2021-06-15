@@ -1,0 +1,19 @@
+<div class="container">
+    <mat-toolbar>
+        <span>Asignar curso</span>
+    </mat-toolbar>
+    <div fxLayoutAlign="center center" fxFlexFill class="main-div">
+        <mat-card fxFlex="75">
+            <section class="example-section" [formGroup]="form"></section>
+            <form [formGroup]="form" (ngSubmit)="submit()" fxLayoutAlign="stretch" fxLayout="column">
+                <section class="example-section" *ngFor="let course of courses">
+                    <mat-checkbox class="example-margin"
+                        (change)="updateChkbxArray(course, $event.checked)"  [checked]="coursesForm.value.includes(course.id)" [id]="course.id">
+                    {{ course.name }}
+                    </mat-checkbox>
+                  </section>
+                  <button mat-raised-button color="primary">Asignar</button>
+            </form>
+        </mat-card>
+    </div>
+</div>
